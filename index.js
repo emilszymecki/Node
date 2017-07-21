@@ -30,4 +30,4 @@ var BlogController = function() {
 
 
 var z = BlogController()
-z.index("dupa")
+z.index("Kupa")
