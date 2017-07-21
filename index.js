@@ -1,33 +1,15 @@
-var BlogController = function() {
-  var index = function(posts) {
-    return console.log(posts);
-  };
+var http = require("http");
 
-  var show = function(post) {
-    return Views.show(post);
-  };
+http.createServer(function (request, response) {
 
-  var create = function(attrs) {
-    return Db.create(attrs);
-  };
+   // Send the HTTP header 
+   // HTTP Status: 200 : OK
+   // Content Type: text/plain
+   response.writeHead(200, {'Content-Type': 'text/plain'});
+   
+   // Send the response body as "Hello World"
+   response.end('Hello World\n');
+}).listen(8081);
 
-  var update = function(post, attrs) {
-    return Db.update(post, attrs);
-  };
-
-  var destroy = function(post) {
-    return Db.destroy(post);
-  };
-
-  return {
-    index: index,
-    show: show,
-    create: create,
-    update: update,
-    destroy: destroy,
-  };
-};
-
-
-var z = BlogController()
-z.index("Kupa")
+// Console will print the message
+console.log('Server running at http://127.0.0.1:8081/');
